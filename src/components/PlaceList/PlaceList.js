@@ -1,8 +1,27 @@
 import React from 'react';
-import {} from 'react-native';
+import { View, StyleSheet } from 'react-native';
 
-const placeList = props => (
+import ListItem from '../ListItem/ListItem';
 
-);
+const placeList = props => {
+  const placesOutput = props.places.map((place, index) => (
+    <ListItem
+      key={index}
+      placeName={place}
+    />
+  ));
+
+  return(
+    <View style={styles.listContainer}>
+        {placesOutput}
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  listContainer: {
+    width: '100%'
+  }
+});
 
 export default placeList;
