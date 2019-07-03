@@ -40,19 +40,7 @@ export default class App extends Component {
 
     return (
       <View style={styles.container}>
-        <View style={styles.inputContainer}>
-          <TextInput
-            style={styles.placeInput}
-            placeholder="enter text here..."
-            value={this.state.placeName}
-            onChangeText={this.placeNameChangedHandler}
-            />
-          <Button
-            style={styles.placeButton}
-            title="add"
-            onPress={this.placeSubmitHandler}
-          />
-        </View>
+
         <View style={styles.listContainer}>
             {placesOutput}
         </View>
@@ -69,24 +57,6 @@ const styles = StyleSheet.create({
     paddingTop: 40,
     paddingLeft: 5,
     paddingRight: 5
-  },
-  inputContainer: {
-    width: '100%',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center'
-  },
-  placeInput: {
-    width: '70%',
-    borderColor: 'purple',
-    borderWidth: 1,
-    borderRadius: 8,
-    borderStyle: "dotted",
-    padding: 10,
-    backgroundColor: "white"
-  },
-  placeButton: {
-    width: '30%'
   },
   listContainer: {
     width: '100%'
