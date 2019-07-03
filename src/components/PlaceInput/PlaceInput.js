@@ -32,7 +32,6 @@ class PlaceInput extends Component {
           style={styles.placeButton}
           title="add"
           onPress={this.placeSubmitHandler}
-          clearButtonMode="while-editing"
         />
       </View>
     );
