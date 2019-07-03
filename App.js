@@ -1,20 +1,43 @@
 
 
 import React, {Component} from 'react';
-import {Platform, StyleSheet, View, TextInput, Button} from 'react-native';
+import {Platform, StyleSheet, View, Text, TextInput, Button} from 'react-native';
+
+import ListItem from './src/components/ListItem/ListItem';
 
 export default class App extends Component {
   state = {
-    placeName: ''
+    placeName: '',
+    places: []
   };
 
   placeNameChangedHandler = userInput => {
     this.setState({
       placeName: userInput
-    })
+    });
   };
 
+  placeSubmitHandler = () => {
+    if(this.state.placeName.trim() === "") {
+      return;
+    }
+
+    this.setState(prevState => {
+      return {
+        places: prevState.places.concat(prevState.placeName)
+      };
+    });
+  };
+
+
   render() {
+    const placesOutput = this.state.places.map((place, index) => (
+      <ListItem
+        key={index}
+        placeName={place}
+      />
+    ));
+
     return (
       <View style={styles.container}>
         <View style={styles.inputContainer}>
@@ -27,7 +50,11 @@ export default class App extends Component {
           <Button
             style={styles.placeButton}
             title="add"
+            onPress={this.placeSubmitHandler}
           />
+        </View>
+        <View style={styles.listContainer}>
+            {placesOutput}
         </View>
       </View>
     );
@@ -60,5 +87,8 @@ const styles = StyleSheet.create({
   },
   placeButton: {
     width: '30%'
+  },
+  listContainer: {
+    width: '100%'
   }
 });
