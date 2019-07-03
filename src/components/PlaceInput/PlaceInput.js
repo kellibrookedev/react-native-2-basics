@@ -2,6 +2,23 @@ import React, { Component } from 'react';
 import { View, TextInput, Button, StyleSheet } from 'react-native';
 
 class PlaceInput extends Component {
+  state = {
+    placeName: ''
+  };
+
+  placeNameChangedHandler = userInput => {
+    this.setState({
+      placeName: userInput
+    });
+  };
+
+  placeSubmitHandler = () => {
+    if(this.state.placeName.trim() === "") {
+      return;
+    }
+    this.props.onPlaceAdded(this.state.placeName)
+  };
+
   render() {
     return(
       <View style={styles.inputContainer}>
