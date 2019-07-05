@@ -6,6 +6,10 @@ class PlaceInput extends Component {
     placeName: ''
   };
 
+  componentDidMount() {
+
+  }
+
   placeNameChangedHandler = userInput => {
     this.setState({
       placeName: userInput
@@ -24,7 +28,7 @@ class PlaceInput extends Component {
       <View style={styles.inputContainer}>
         <TextInput
           style={styles.placeInput}
-          placeholder="enter text here..."
+          placeholder="butts..."
           value={this.state.placeName}
           onChangeText={this.placeNameChangedHandler}
           />
