@@ -3,12 +3,14 @@ import {
   ADD_PLACE,
   DELETE_PLACE,
   SELECT_PLACE,
-  DESELECT_PLACE
+  DESELECT_PLACE,
+  ADD_PHOTO
 } from '../actions/actionTypes';
 
 const initialState = {
   places: [],
-  selectedPlace: null
+  selectedPlace: null,
+  photo: null
 }
 const reducer = (state = initialState, action) => {
   switch (action.type) {
@@ -45,6 +47,12 @@ const reducer = (state = initialState, action) => {
         return {
           ...state,
           selectedPlace: null
+        };
+
+      case ADD_PHOTO:
+        return {
+          ...state,
+          photo: action.photo
         };
 
     default:
